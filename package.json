@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.0",
+    "debounce": "^1.2.1",
+    "framer-motion": "^6.3.16",
+    "immer": "^9.0.15",
+    "next": "^12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "use-immer": "^0.7.0"
   },
   "devDependencies": {
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0"
+  },
+  "engines": {
+    "node": "v14.17.5",
+    "npm": "v6.14.14"
   }
 }
