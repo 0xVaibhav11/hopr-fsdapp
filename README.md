@@ -1,3 +1,3 @@
-File Sharing Dapp
+## File Sharing Dapp
 
 powered by HOPR
