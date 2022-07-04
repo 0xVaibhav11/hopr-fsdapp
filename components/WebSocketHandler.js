@@ -17,11 +17,15 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
         console.log("WebSocket Data", data);
         received.push(data.msg);
         console.log(received);
+        setMessage(received.join(""));
+        console.log(message);
       }
-      setMessage(received.join(""));
       const split = message.split("@");
+      console.log(split);
       setFile(split[0]);
-      setFileName(split[1]);
+      console.log(file);
+      setFileName(split[split.length - 1]);
+      console.log(fileName);
     } catch (err) {
       console.error(err);
     }
