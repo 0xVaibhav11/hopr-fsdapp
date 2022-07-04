@@ -38,7 +38,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
 
   return (
     <a href={file} download={fileName}>
-      {fileName}
+      Download {fileName}
     </a>
   );
 };
