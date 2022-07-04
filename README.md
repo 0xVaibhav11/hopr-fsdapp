@@ -10,7 +10,7 @@ It is converting files into base64 string and dividing into the chunks of 400byt
 and to make file accessable to the user, App collects all chunks(messages) from node and merge all chunks into one base64 string.
 Then decodes that string and gives a download link to user.
 
-### Because of server limits 
+### Because of server limitations
 Try it on your local system on web it fetches data from node not as expected.
 Working to make this app work on servers
 
