@@ -18,10 +18,6 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
         received.push(data.msg);
         console.log(received);
       }
-      setMessage(received.join(""));
-      const split = message.split("@");
-      setFile(split[0]);
-      setFileName(split[1]);
     } catch (err) {
       console.error(err);
     }
@@ -35,10 +31,20 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
       socketRef.current.removeEventListener("message", handleReceivedMessage);
     };
   }, [socketRef.current]);
+  useEffect(() => {
+    setMessage(received.join(""));
+    console.log(message);
+    const split = message.split("@");
+    console.log(split);
+    setFile(split[0]);
+    console.log(file);
+    setFileName(split[split.length - 1]);
+    console.log(fileName);
+  });
 
   return (
     <a href={file} download={fileName}>
-      {fileName}
+      Download {fileName}
     </a>
   );
 };
