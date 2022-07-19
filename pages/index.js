@@ -5,8 +5,8 @@ import styles from "../styles/Home.module.css";
 function Fshare() {
   const [fileToSend, setFileToSend] = useState([]);
   const [securityToken, setSecurityToken] = useState("^^LOCAL-testing-123^^");
-  const [wsEndpoint, setWsEndpoint] = useState("ws://localhost:3000");
-  const [httpEndpoint, setHTTPEndpoint] = useState("http://localhost:3001");
+  const [wsEndpoint, setWsEndpoint] = useState("wss://localhost:3000");
+  const [httpEndpoint, setHTTPEndpoint] = useState("https://localhost:3001");
   const [address, setAddress] = useState("");
 
   const getHeaders = (isPost = false) => {
@@ -85,54 +85,72 @@ function Fshare() {
   //     }).catch((err) => console.error(err));
   //   };
   return (
-    <div className={styles.app}>
-      <div className={styles.upl}>
-        <h1>Upload</h1>
-        <label className={styles.fontSize}>HTTP Endpoint</label>
-        <input
-          className={styles.fontSize}
-          name="httpEndpoint"
-          placeholder={httpEndpoint}
-          value={httpEndpoint}
-          onChange={(e) => setHTTPEndpoint(e.target.value)}
-        />
-
-        <label className={styles.fontSize}>Security Token</label>
-        <input
-          className={styles.fontSize}
-          name="securityToken"
-          placeholder={securityToken}
-          value={securityToken}
-          onChange={(e) => setSecurityToken(e.target.value)}
-        />
-
-        <input
-          type="file"
-          onChange={(e) => {
-            uploadFile(e);
-          }}
-        />
-
-        <button className={styles.fontSize} onClick={() => sendMessage()}>
-          Upload
-        </button>
+    <>
+      <div className={styles.head}>
+        <p className={styles.heading}>
+          It is a file sharing dApp on HOPR mixnet.
+        </p>
       </div>
 
-      <div className={styles.downl}>
-        <h1>Download</h1>
+      <div className={styles.app}>
+        <div className={styles.downl}>
+          <h1 className={styles.headin}>Download</h1>
 
-        <label className={styles.fontSize}>WS Endpoint</label>
-        <input
-          className={styles.fontSize}
-          name="wsEndpoint"
-          placeholder={wsEndpoint}
-          value={wsEndpoint}
-          onChange={(e) => setWsEndpoint(e.target.value)}
+          <label className={styles.fontSize}>WS Endpoint</label>
+          <input
+            className={styles.fontSize}
+            name="wsEndpoint"
+            placeholder={wsEndpoint}
+            value={wsEndpoint}
+            onChange={(e) => setWsEndpoint(e.target.value)}
+          />
+          <label className={styles.fontSize}>Security Token</label>
+          <input
+            className={styles.fontSize}
+            name="securityToken"
+            placeholder={securityToken}
+            value={securityToken}
+            onChange={(e) => setSecurityToken(e.target.value)}
+          />
+        </div>
+        <div className={styles.upl}>
+          <h1 className={styles.headin}>Upload</h1>
+          <label className={styles.fontSize}>HTTP Endpoint</label>
+          <input
+            className={styles.fontSize}
+            name="httpEndpoint"
+            placeholder={httpEndpoint}
+            value={httpEndpoint}
+            onChange={(e) => setHTTPEndpoint(e.target.value)}
+          />
+
+          <label className={styles.fontSize}>Security Token</label>
+          <input
+            className={styles.fontSize}
+            name="securityToken"
+            placeholder={securityToken}
+            value={securityToken}
+            onChange={(e) => setSecurityToken(e.target.value)}
+          />
+
+          <input
+            type="file"
+            onChange={(e) => {
+              uploadFile(e);
+            }}
+          />
+
+          <button className={styles.fontSize} onClick={() => sendMessage()}>
+            Upload
+          </button>
+        </div>
+
+        <WebSocketHandler
+          wsEndpoint={wsEndpoint}
+          securityToken={securityToken}
         />
       </div>
-
-      <WebSocketHandler wsEndpoint={wsEndpoint} securityToken={securityToken} />
-    </div>
+    </>
   );
 }
 
