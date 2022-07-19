@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useWebsocket from "../hooks/useWebsocket";
+import styles from "../styles/Home.module.css";
 
-export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
+export const WebSocketHandler = ({ wsEndpoint, securityToken, get }) => {
   const [received, setReceived] = useState([]);
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
-  // const [split, setSplit] = useState([]);
   const [file, setFile] = useState("");
   const websocket = useWebsocket({ wsEndpoint, securityToken });
   const { socketRef } = websocket;
@@ -16,7 +16,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
       if (data.type === "message") {
         console.log("WebSocket Data", data);
         received.push(data.msg);
-        console.log(received);
+        console.log(`received ${received}`);
       }
     } catch (err) {
       console.error(err);
@@ -31,7 +31,8 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
       socketRef.current.removeEventListener("message", handleReceivedMessage);
     };
   }, [socketRef.current]);
-  useEffect(() => {
+
+  const render = () => {
     setMessage(received.join(""));
     console.log(message);
     const split = message.split("@");
@@ -40,10 +41,24 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
     console.log(file);
     setFileName(split[split.length - 1]);
     console.log(fileName);
-  });
+  };
 
   return (
     <>
+      {received ? (
+        <>
+          <button className={styles.fontSize} onClick={() => render()}>
+            Fetch
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
+
+      {/* <button className={styles.fontSize} onClick={() => render()}>
+        Fetch
+      </button> */}
+
       {file ? (
         <>
           <a href={file} download={fileName}>

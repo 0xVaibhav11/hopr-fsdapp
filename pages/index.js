@@ -4,7 +4,8 @@ import styles from "../styles/Home.module.css";
 
 function Fshare() {
   const [fileToSend, setFileToSend] = useState([]);
-  const [securityToken, setSecurityToken] = useState("^^LOCAL-testing-123^^");
+  const [securityToken, setSecurityToken] = useState("");
+  const [path, setPath] = useState("");
   const [wsEndpoint, setWsEndpoint] = useState("wss://localhost:3000");
   const [httpEndpoint, setHTTPEndpoint] = useState("https://localhost:3001");
   const [address, setAddress] = useState("");
@@ -68,22 +69,16 @@ function Fshare() {
         body: JSON.stringify({
           recipient: address,
           body: elements,
+          path: [path],
         }),
-      }).catch((err) => console.error(err));
+      }).catch((error) => console.error(error));
     }
   };
 
-  //   const sendMessage = async () => {
-  //     if (!address) return;
-  //     await fetch(`${httpEndpoint}/api/v2/messages`, {
-  //       method: "POST",
-  //       headers: getHeaders(true),
-  //       body: JSON.stringify({
-  //         recipient: "16Uiu2HAm58JMsXAZU4DaHAYaHcMMSX3dDZeL9XhUm79qdCYdRCCe",
-  //         body: "bye",
-  //       }),
-  //     }).catch((err) => console.error(err));
-  //   };
+  const change = () => {
+    setGet(true);
+  };
+
   return (
     <>
       <div className={styles.head}>
@@ -112,6 +107,11 @@ function Fshare() {
             value={securityToken}
             onChange={(e) => setSecurityToken(e.target.value)}
           />
+
+          <WebSocketHandler
+            wsEndpoint={wsEndpoint}
+            securityToken={securityToken}
+          />
         </div>
         <div className={styles.upl}>
           <h1 className={styles.headin}>Upload</h1>
@@ -132,6 +132,14 @@ function Fshare() {
             value={securityToken}
             onChange={(e) => setSecurityToken(e.target.value)}
           />
+          <label className={styles.fontSize}>Path</label>
+          <input
+            className={styles.fontSize}
+            name="path"
+            placeholder={path}
+            value={path}
+            onChange={(e) => setPath(e.target.value)}
+          />
 
           <input
             type="file"
@@ -141,14 +149,9 @@ function Fshare() {
           />
 
           <button className={styles.fontSize} onClick={() => sendMessage()}>
-            Upload
+            Send
           </button>
         </div>
-
-        <WebSocketHandler
-          wsEndpoint={wsEndpoint}
-          securityToken={securityToken}
-        />
       </div>
     </>
   );
