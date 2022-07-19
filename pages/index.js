@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 
 function Fshare() {
   const [fileToSend, setFileToSend] = useState([]);
-  const [securityToken, setSecurityToken] = useState("");
+  const [securityToken, setSecurityToken] = useState("^^LOCAL-testing-123^^");
   const [wsEndpoint, setWsEndpoint] = useState("ws://localhost:3000");
   const [httpEndpoint, setHTTPEndpoint] = useState("http://localhost:3001");
   const [address, setAddress] = useState("");
@@ -86,49 +86,50 @@ function Fshare() {
   //   };
   return (
     <div className={styles.app}>
-      <h3>Upload</h3>
-      <label>HTTP Endpoint</label>
-      <input
-        name="httpEndpoint"
-        placeholder={httpEndpoint}
-        value={httpEndpoint}
-        onChange={(e) => setHTTPEndpoint(e.target.value)}
-      />
+      <div className={styles.upl}>
+        <h1>Upload</h1>
+        <label className={styles.fontSize}>HTTP Endpoint</label>
+        <input
+          className={styles.fontSize}
+          name="httpEndpoint"
+          placeholder={httpEndpoint}
+          value={httpEndpoint}
+          onChange={(e) => setHTTPEndpoint(e.target.value)}
+        />
 
-      <label>Security Token</label>
-      <input
-        name="securityToken"
-        placeholder={securityToken}
-        value={securityToken}
-        onChange={(e) => setSecurityToken(e.target.value)}
-      />
+        <label className={styles.fontSize}>Security Token</label>
+        <input
+          className={styles.fontSize}
+          name="securityToken"
+          placeholder={securityToken}
+          value={securityToken}
+          onChange={(e) => setSecurityToken(e.target.value)}
+        />
 
-      <input
-        type="file"
-        onChange={(e) => {
-          uploadFile(e);
-        }}
-      />
+        <input
+          type="file"
+          onChange={(e) => {
+            uploadFile(e);
+          }}
+        />
 
-      <button onClick={() => sendMessage()}>Upload</button>
+        <button className={styles.fontSize} onClick={() => sendMessage()}>
+          Upload
+        </button>
+      </div>
 
-      <h3>Download</h3>
+      <div className={styles.downl}>
+        <h1>Download</h1>
 
-      <label>WS Endpoint</label>
-      <input
-        name="wsEndpoint"
-        placeholder={wsEndpoint}
-        value={wsEndpoint}
-        onChange={(e) => setWsEndpoint(e.target.value)}
-      />
-
-      <label>Security Token</label>
-      <input
-        name="securityToken"
-        placeholder={securityToken}
-        value={securityToken}
-        onChange={(e) => setSecurityToken(e.target.value)}
-      />
+        <label className={styles.fontSize}>WS Endpoint</label>
+        <input
+          className={styles.fontSize}
+          name="wsEndpoint"
+          placeholder={wsEndpoint}
+          value={wsEndpoint}
+          onChange={(e) => setWsEndpoint(e.target.value)}
+        />
+      </div>
 
       <WebSocketHandler wsEndpoint={wsEndpoint} securityToken={securityToken} />
     </div>

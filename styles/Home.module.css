@@ -1,8 +1,27 @@
 .app {
   display: flex;
+  gap: 5rem;
+  margin-top: 10vh;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.fontSize {
+  font-size: 2rem;
+}
+
+.upl {
+  display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  margin: 5vh;
+}
+.downl {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
