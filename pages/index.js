@@ -33,6 +33,10 @@ function Fshare() {
     loadAddress();
   }, [securityToken, httpEndpoint]);
 
+  useEffect(() => {
+    console.log(fileToSend);
+  }, [fileToSend]);
+
   const convertBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -73,10 +77,6 @@ function Fshare() {
         }),
       }).catch((error) => console.error(error));
     }
-  };
-
-  const change = () => {
-    setGet(true);
   };
 
   return (

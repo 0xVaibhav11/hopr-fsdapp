@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useWebsocket from "../hooks/useWebsocket";
 import styles from "../styles/Home.module.css";
 
-export const WebSocketHandler = ({ wsEndpoint, securityToken, get }) => {
+export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
   const [received, setReceived] = useState([]);
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
@@ -54,10 +54,6 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken, get }) => {
       ) : (
         <></>
       )}
-
-      {/* <button className={styles.fontSize} onClick={() => render()}>
-        Fetch
-      </button> */}
 
       {file ? (
         <>
