@@ -142,13 +142,14 @@ function Fshare() {
           />
 
           <input
+            className={styles.file}
             type="file"
             onChange={(e) => {
               uploadFile(e);
             }}
           />
 
-          <button className={styles.fontSize} onClick={() => sendMessage()}>
+          <button className={styles.btn} onClick={() => sendMessage()}>
             Send
           </button>
         </div>

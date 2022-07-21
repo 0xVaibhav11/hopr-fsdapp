@@ -47,7 +47,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
     <>
       {received ? (
         <>
-          <button className={styles.fontSize} onClick={() => render()}>
+          <button className={styles.btn} onClick={() => render()}>
             Fetch
           </button>
         </>
