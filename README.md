@@ -14,7 +14,7 @@ Then decodes that string and gives a download link to user.
 
 ![demo](https://user-images.githubusercontent.com/97467803/180613164-e9ad8594-c42c-4bdf-8bb1-1abe920585cf.gif)
 
-[see full video](https://vimeo.com/732748433)
+[To know how to use this app see full video](https://vimeo.com/732748433)
 
 
 # powered by HOPR
