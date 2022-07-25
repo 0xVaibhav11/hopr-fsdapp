@@ -96,3 +96,16 @@
   background-position: 0;
   color: rgb(255, 255, 255);
 }
+
+.btn2 {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #627475;
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 10px 30px 10px 30px;
+  border: solid #627475 2px;
+  border-color: #627475;
+  color: #627475;
+}

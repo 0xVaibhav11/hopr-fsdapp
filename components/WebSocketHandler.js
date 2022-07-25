@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import useWebsocket from "../hooks/useWebsocket";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
   const [received, setReceived] = useState([]);
+  const [show, setShow] = useState(false);
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState("");
@@ -32,7 +34,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
     };
   }, [socketRef.current]);
 
-  const render = () => {
+  function render() {
     setMessage(received.join(""));
     console.log(message);
     const split = message.split("@");
@@ -41,18 +43,24 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
     console.log(file);
     setFileName(split[split.length - 1]);
     console.log(fileName);
-  };
+  }
 
   return (
     <>
       {received ? (
         <>
-          <button className={styles.btn} onClick={() => render()}>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            className={styles.btn}
+            onClick={() => render()}
+          >
             Fetch
-          </button>
+          </motion.button>
         </>
       ) : (
-        <></>
+        <>
+          <button className={styles.btn2}>Fetch</button>
+        </>
       )}
 
       {file ? (

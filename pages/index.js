@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WebSocketHandler from "../components/WebSocketHandler";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 function Fshare() {
   const [fileToSend, setFileToSend] = useState([]);
@@ -149,9 +150,13 @@ function Fshare() {
             }}
           />
 
-          <button className={styles.btn} onClick={() => sendMessage()}>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            className={styles.btn}
+            onClick={() => sendMessage()}
+          >
             Send
-          </button>
+          </motion.button>
         </div>
       </div>
     </>
