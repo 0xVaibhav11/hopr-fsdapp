@@ -311,14 +311,14 @@ function Fshare() {
               <div className={styled.inputBox}>
                 <input
                   required
-                  title="Api tocken!"
+                  title="Api token!"
                   type="text"
                   name="securityToken"
                   placeholder={securityToken}
                   value={securityToken}
                   onChange={(e) => setSecurityToken(e.target.value)}
                 />
-                <span>Security tocken</span>
+                <span>Security token</span>
               </div>
               <div className={styled.btn} onClick={() => setShow(false)}>
                 Done
