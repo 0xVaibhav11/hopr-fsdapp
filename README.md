@@ -8,7 +8,7 @@ It is converting files into base64 string and dividing into the chunks of 400byt
 and to make file accessable to the user, App collects all chunks(messages) from node and merge all chunks into one base64 string.
 Then decodes that string and gives a download link to user.
 
-#### [Vist dApp](https://hoprfsdapp.vanoob.dev)
+#### [Vist dApp](https://share3.vanoob.dev)
 
 # Demo video
 
