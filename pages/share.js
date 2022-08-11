@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 
 import WebSocketHandler from "../components/WebSocketHandler";
 import styled from "../styles/Share.module.scss";
@@ -131,6 +132,9 @@ function Fshare() {
 
   return (
     <>
+      <Head>
+        <title>{"Share<3 |App"}</title>
+      </Head>
       <div className={styled.continer}>
         {/* //Nav starts */}
         <div className={styled.nav}>

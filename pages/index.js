@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
@@ -21,6 +22,9 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>{"Share<3 |Home"}</title>
+      </Head>
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.nav}>
