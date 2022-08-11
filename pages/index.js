@@ -47,14 +47,14 @@ const Home = () => {
               </motion.h1>
             </div>
             <div className={styles.links}>
-              <a href="https://hoprnet.org" target="_blank" rel="noopener">
+              <a href="https://hoprnet.org" target="_blank" rel="noreferrer">
                 What&#39;s HOPR
               </a>
 
               <a
                 href="https://discord.gg/SD9JR2QF"
                 target="_blank"
-                rel="noopener"
+                rel="noreferrer"
               >
                 Contact
               </a>

@@ -132,7 +132,7 @@ function Fshare() {
   return (
     <>
       <div className={styled.continer}>
-        //Nav starts
+        {/* //Nav starts */}
         <div className={styled.nav}>
           <div className={styled.back}>
             <Link href="/">
@@ -183,7 +183,7 @@ function Fshare() {
             )}
           </div>
         </div>
-        //Nav ends //App's UI starts
+        {/* //Nav ends //App's UI starts */}
         {tab == "send" ? (
           <>
             <motion.div
@@ -284,7 +284,7 @@ function Fshare() {
             </motion.div>
           </>
         )}
-        //App's UI ends // APi setting tab
+        {/* //App's UI ends // APi setting tab */}
         {show ? (
           <>
             <motion.div
