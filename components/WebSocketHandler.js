@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import useWebsocket from "../hooks/useWebsocket";
-import styles from "../styles/Home.module.css";
+import styled from "../styles/Share.module.scss";
 import { motion } from "framer-motion";
 
 export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
   const [received, setReceived] = useState([]);
-  const [show, setShow] = useState(false);
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState("");
@@ -13,8 +12,8 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
   const { socketRef } = websocket;
   const handleReceivedMessage = async (ev) => {
     try {
-      // we are only interested in messages, not all the other events coming in on the socket
       const data = JSON.parse(ev.data);
+      // we are only interested in messages
       if (data.type === "message") {
         console.log("WebSocket Data", data);
         received.push(data.msg);
@@ -35,6 +34,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
   }, [socketRef.current]);
 
   function render() {
+    setMessage("");
     setMessage(received.join(""));
     console.log(message);
     const split = message.split("@");
@@ -47,27 +47,39 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
 
   return (
     <>
-      {received ? (
+      <div className={styled.farea}>
+        {file ? (
+          <>
+            <motion.div
+              initial={({ opacity: 0 }, { y: -100 })}
+              animate={({ opacity: 1 }, { y: 0 })}
+              className={styled.rfile}
+            >
+              <div className={styled.rfname}>{"101byte.txt"}</div>
+              <a href={file} download={fileName}>
+                <span class="material-symbols-outlined">file_download</span>
+              </a>
+            </motion.div>
+          </>
+        ) : (
+          <>
+            <div className={styled.nofile}>No file appeared on node</div>
+          </>
+        )}
+      </div>
+
+      {received[0] ? (
         <>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className={styles.btn}
+          <motion.div
+            whileTap={{ rotate: [360, 360, 360, 360, 0] }}
+            transition={{ duration: 1 }}
+            className={styled.btn}
             onClick={() => render()}
           >
-            Fetch
-          </motion.button>
-        </>
-      ) : (
-        <>
-          <button className={styles.btn2}>Fetch</button>
-        </>
-      )}
-
-      {file ? (
-        <>
-          <a href={file} download={fileName}>
-            Download {fileName}
-          </a>
+            <span title="sync!" class="material-symbols-outlined">
+              sync
+            </span>
+          </motion.div>
         </>
       ) : (
         <></>

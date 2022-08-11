@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^2.2.1",
+    "@splinetool/runtime": "^0.9.93",
     "debounce": "^1.2.1",
     "framer-motion": "^6.3.16",
     "immer": "^9.0.15",
     "next": "^12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-drag-drop-files": "^2.3.7",
+    "react-parallax-tilt": "^1.7.51",
+    "react-router-dom": "^6.3.0",
+    "sass": "^1.54.3",
     "use-immer": "^0.7.0"
   },
   "devDependencies": {

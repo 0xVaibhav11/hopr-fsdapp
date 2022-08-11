@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
 
+$bg-color: #141525;
+$bg-color2: #0b0c18;
+
 * {
   padding: 0;
   margin: 0;
@@ -10,10 +13,14 @@
 html {
   font-size: 62.5%;
 }
+body {
+  overflow: hidden;
+  background-color: $bg-color2;
+}
 
-a {
-  color: green;
-  font-size: 1.5em;
-  font-weight: 600;
-  text-decoration: underline;
+.material-symbols-outlined {
+  font-size: 3rem;
+  color: white;
+  user-select: none;
+  cursor: pointer;
 }
