@@ -57,7 +57,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
             >
               <div className={styled.rfname}>{"101byte.txt"}</div>
               <a href={file} download={fileName}>
-                <span class="material-symbols-outlined">file_download</span>
+                <span className="material-symbols-outlined">file_download</span>
               </a>
             </motion.div>
           </>
@@ -76,7 +76,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
             className={styled.btn}
             onClick={() => render()}
           >
-            <span title="sync!" class="material-symbols-outlined">
+            <span title="sync!" className="material-symbols-outlined">
               sync
             </span>
           </motion.div>

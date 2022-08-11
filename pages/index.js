@@ -47,11 +47,15 @@ const Home = () => {
               </motion.h1>
             </div>
             <div className={styles.links}>
-              <a href="https://hoprnet.org" target="_blank">
-                What's HOPR
+              <a href="https://hoprnet.org" target="_blank" rel="noopener">
+                What&#39;s HOPR
               </a>
 
-              <a href="https://discord.gg/SD9JR2QF" target="_blank">
+              <a
+                href="https://discord.gg/SD9JR2QF"
+                target="_blank"
+                rel="noopener"
+              >
                 Contact
               </a>
             </div>
@@ -59,9 +63,9 @@ const Home = () => {
           <div className={styles.wrapper}>
             <div className={styles.left}>
               <h1>
-                It's <span className={styles.hilight}>{chText}</span>
+                It&#39;s <span className={styles.hilight}>{chText}</span>
               </h1>
-              <h1>It's WEB3</h1>
+              <h1>It&#39;s WEB3</h1>
               <p>
                 Share you files privetly to others in most secure way on
                 blockchain with Hopr
