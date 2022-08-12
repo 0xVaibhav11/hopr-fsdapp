@@ -272,28 +272,21 @@ function Fshare() {
                 </div>
               </div>
             </motion.div>
-            <div className={styled.zero}>
-              <WebSocketHandler
-                wsEndpoint={`${httpEndpoint}/api/v2/messages/websocket`}
-                securityToken={securityToken}
-              />
-            </div>
           </>
         ) : (
-          <>
-            <motion.div
-              key="1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className={styled.receiveui}
-            >
-              <WebSocketHandler
-                wsEndpoint={`${httpEndpoint}/api/v2/messages/websocket`}
-                securityToken={securityToken}
-              />
-            </motion.div>
-          </>
+          <></>
         )}
+        <motion.div
+          key="1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className={tab === "receive" ? styled.receiveui : styled.zero}
+        >
+          <WebSocketHandler
+            wsEndpoint={`${httpEndpoint}/api/v2/messages/websocket`}
+            securityToken={securityToken}
+          />
+        </motion.div>
         {/* //App's UI ends // APi setting tab */}
         {show ? (
           <>
