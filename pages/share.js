@@ -323,7 +323,14 @@ function Fshare() {
               <div className={styled.btn} onClick={() => setShow(false)}>
                 Done
               </div>
-              <p className={styled.help}>help</p>
+              <a
+                href="https://github.com/vanoob404/hopr-fsdapp#demo-video"
+                target="_blank"
+                rel="noreferrer"
+                className={styled.help}
+              >
+                help
+              </a>
             </motion.div>
           </>
         ) : (
