@@ -27,9 +27,8 @@ export const WebSocketHandler: React.FC<{
   const handleReceivedMessage = async (ev: MessageEvent<string>) => {
     try {
       const data = decodeMessage(ev.data);
-      console.log("WebSocket Data", data);
+      console.log("WebSocket Data: receiving...");
       received.push(data);
-      console.log(`received ${received}`);
     } catch (err) {
       console.error(err);
     }
@@ -47,13 +46,10 @@ export const WebSocketHandler: React.FC<{
   async function render() {
     setMessage("");
     setMessage(received.join(""));
-    console.log(message);
     const split = message.split("@");
-    console.log(split);
     setFile(split[0]);
-    console.log(file);
     setFileName(split[split.length - 1]);
-    console.log(fileName);
+    console.log(`${fileName} found!`);
   }
 
   return (
