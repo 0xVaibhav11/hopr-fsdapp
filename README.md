@@ -27,6 +27,9 @@ Then decodes that string and gives a download link to user.
 https://share3.vanoob.dev/share?apiEndpoint="https://yourHttpEndpoint.com"&apiToken="yourSecurityToken"
 ```
 
+## Left to do
+- [ ] To make it adaptive for mobile screens 
+
 
 ## Learn about HOPR
 
