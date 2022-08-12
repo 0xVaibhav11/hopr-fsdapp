@@ -1,24 +1,35 @@
 import React, { useEffect, useState, useRef } from "react";
-import useWebsocket from "../hooks/useWebsocket";
+import useWebsocket from "../hooks/useWebsocket.ts";
 import styled from "../styles/Share.module.scss";
 import { motion } from "framer-motion";
 
-export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
+import { decode } from "rlp";
+export const WebSocketHandler: React.FC<{
+  wsEndpoint: string;
+  securityToken: string;
+}> = ({ wsEndpoint, securityToken }): JSX.Element => {
   const [received, setReceived] = useState([]);
   const [message, setMessage] = useState("");
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState("");
   const websocket = useWebsocket({ wsEndpoint, securityToken });
   const { socketRef } = websocket;
-  const handleReceivedMessage = async (ev) => {
+
+  const decodeMessage = (msg: string): string => {
+    let uint8Array = new Uint8Array(JSON.parse(`[${msg}]`));
+    let decodedArray = decode(uint8Array);
+    if (decodedArray[0] instanceof Uint8Array) {
+      return new TextDecoder().decode(decodedArray[0]);
+    }
+    throw Error(`Could not decode received message: ${msg}`);
+  };
+
+  const handleReceivedMessage = async (ev: MessageEvent<string>) => {
     try {
-      const data = JSON.parse(ev.data);
-      // we are only interested in messages
-      if (data.type === "message") {
-        console.log("WebSocket Data", data);
-        received.push(data.msg);
-        console.log(`received ${received}`);
-      }
+      const data = decodeMessage(ev.data);
+      console.log("WebSocket Data", data);
+      received.push(data);
+      console.log(`received ${received}`);
     } catch (err) {
       console.error(err);
     }
@@ -33,7 +44,7 @@ export const WebSocketHandler = ({ wsEndpoint, securityToken }) => {
     };
   }, [socketRef.current]);
 
-  function render() {
+  async function render() {
     setMessage("");
     setMessage(received.join(""));
     console.log(message);

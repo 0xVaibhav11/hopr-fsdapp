@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Head from "next/head";
 
-import WebSocketHandler from "../components/WebSocketHandler";
+import WebSocketHandler from "../components/WebSocketHandler.tsx";
 import styled from "../styles/Share.module.scss";
 import { FileUploader } from "react-drag-drop-files";
 import { motion } from "framer-motion";
@@ -272,6 +272,12 @@ function Fshare() {
                 </div>
               </div>
             </motion.div>
+            <div className={styled.zero}>
+              <WebSocketHandler
+                wsEndpoint={`${httpEndpoint}/api/v2/messages/websocket`}
+                securityToken={securityToken}
+              />
+            </div>
           </>
         ) : (
           <>

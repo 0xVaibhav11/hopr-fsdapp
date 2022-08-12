@@ -22,6 +22,10 @@ $bg-color2: #0b0c18;
   padding: 0 10%;
   background-color: $bg-color2;
   overflow: hidden !important;
+  .zero {
+    width: 0;
+    height: 0;
+  }
   .apiset {
     z-index: 999;
     position: absolute;

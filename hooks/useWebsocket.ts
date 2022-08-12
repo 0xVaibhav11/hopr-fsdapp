@@ -1,19 +1,24 @@
-/*
-  A react hook.
-  Keeps websocket connection alive, reconnects on disconnections or endpoint change.
-*/
 import { useImmer } from "use-immer";
 import { useEffect, useRef, useState } from "react";
-import debounce from "debounce";
+import { debounce } from "debounce";
 
-const useWebsocket = (settings) => {
+export type ConnectionStatus = "CONNECTED" | "DISCONNECTED";
+export type Settings = {
+  wsEndpoint: string;
+  securityToken?: string;
+};
+
+const useWebsocket = (settings: Settings) => {
   // update timestamp when you want to reconnect to the websocket
-  const [reconnectTmsp, setReconnectTmsp] = useState();
-  const [state, setState] = useImmer({ status: "DISCONNECTED" });
+  const [reconnectTmsp, setReconnectTmsp] = useState<number>();
+  const [state, setState] = useImmer<{
+    status: ConnectionStatus;
+    error?: string;
+  }>({ status: "DISCONNECTED" });
 
-  const socketRef = useRef();
+  const socketRef = useRef<WebSocket>();
 
-  const setReconnectTmspDebounced = debounce((timestamp) => {
+  const setReconnectTmspDebounced = debounce((timestamp: number) => {
     setReconnectTmsp(timestamp);
   }, 1e3);
 
@@ -34,7 +39,7 @@ const useWebsocket = (settings) => {
     setReconnectTmspDebounced(+new Date());
   };
 
-  const handleErrorEvent = (e) => {
+  const handleErrorEvent = (e: Event) => {
     console.error("WS ERROR", e);
     setState((draft) => {
       draft.status = "DISCONNECTED";
@@ -56,7 +61,7 @@ const useWebsocket = (settings) => {
     // need to set the token in the query parameters, to enable websocket authentication
     try {
       const wsUrl = new URL(settings.wsEndpoint);
-      wsUrl.protocol = wsUrl.protocol === "https:" ? "wss" : "ws";
+      wsUrl.protocol = wsUrl.protocol === 'https:' ? 'wss' : 'ws'
 
       if (settings.securityToken) {
         wsUrl.search = `?apiToken=${settings.securityToken}`;
@@ -86,7 +91,7 @@ const useWebsocket = (settings) => {
 
   return {
     state,
-    socketRef,
+    socketRef
   };
 };
 

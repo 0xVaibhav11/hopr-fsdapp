@@ -20,6 +20,7 @@
     "react-drag-drop-files": "^2.3.7",
     "react-parallax-tilt": "^1.7.51",
     "react-router-dom": "^6.3.0",
+    "rlp": "^3.0.0",
     "sass": "^1.54.3",
     "use-immer": "^0.7.0"
   },
