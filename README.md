@@ -22,7 +22,7 @@ Then decodes that string and gives a download link to user.
 
 [To know how to use this app see full video](https://vimeo.com/732748433)
 
-## Direct link with api settings using url 
+## Direct link with api settings
 ```text
 https://share3.vanoob.dev/share?apiEndpoint="https://yourHttpEndpoint.com"&apiToken="yourSecurityToken"
 ```
