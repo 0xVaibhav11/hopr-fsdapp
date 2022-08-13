@@ -15,12 +15,8 @@ const fileTypes = ["TXT", "JPG", "PNG", "GIF", "PDF", "SVG", "MP4"];
 function Fshare() {
   const router = useRouter();
 
-  const [securityToken, setSecurityToken] = useState(
-    router.query.apiToken || ""
-  );
-  const [httpEndpoint, setHTTPEndpoint] = useState(
-    router.query.apiEndpoint || "http://localhost:3001"
-  );
+  const [securityToken, setSecurityToken] = useState("");
+  const [httpEndpoint, setHTTPEndpoint] = useState("http://localhost:3001");
   const [path, setPath] = useState("");
   const [address, setAddress] = useState("");
 
@@ -57,8 +53,18 @@ function Fshare() {
   }, [securityToken, httpEndpoint]);
 
   useEffect(() => {
-    console.log(fileToSend);
-  }, [fileToSend]);
+    console.log(router.query);
+
+    const urlCheak = () => {
+      if (router.query.apiEndpoint) {
+        setHTTPEndpoint(router.query.apiEndpoint);
+      }
+      if (router.query.apiToken) {
+        setSecurityToken(router.query.apiToken);
+      }
+    };
+    urlCheak();
+  }, [router]);
 
   // function to convert file into b64 chars
   const convertBase64 = (file) => {
