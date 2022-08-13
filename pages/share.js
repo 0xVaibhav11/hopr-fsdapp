@@ -107,7 +107,7 @@ function Fshare() {
 
   // sending to the node
   const sendMessage = async () => {
-    if (!address) return;
+    if (address) return;
     for (const elements of fileToSend) {
       await fetch(`${httpEndpoint}/api/v2/messages`, {
         method: "POST",
@@ -120,9 +120,9 @@ function Fshare() {
       })
         .then(function (response) {
           if (!response.ok) {
+            setFeed("error occured");
             throw Error(response.statusText);
           }
-          return response;
         })
         .then(function (response) {
           setFeed("sent! 😎");
