@@ -53,8 +53,6 @@ function Fshare() {
   }, [securityToken, httpEndpoint]);
 
   useEffect(() => {
-    console.log(router.query);
-
     const urlCheak = () => {
       if (router.query.apiEndpoint) {
         setHTTPEndpoint(router.query.apiEndpoint);
