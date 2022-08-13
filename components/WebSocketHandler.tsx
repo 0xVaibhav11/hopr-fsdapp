@@ -49,7 +49,18 @@ export const WebSocketHandler: React.FC<{
     const split = message.split("@");
     setFile(split[0]);
     setFileName(split[1]);
-    console.log(`${fileName} found!`);
+    console.log(
+      `%c${fileName} found!`,
+      `font-size: 2rem;
+          font-weight: 700;
+          padding: 10px;
+          background: linear-gradient(
+                 38deg,
+                 #1223d4 0%,
+                 #ef1dfd 44%,
+                 #f3ff8f 92%
+               );`
+    );
   }
 
   return (
