@@ -48,7 +48,7 @@ export const WebSocketHandler: React.FC<{
     setMessage(received.join(""));
     const split = message.split("@");
     setFile(split[0]);
-    setFileName(split[split.length - 1]);
+    setFileName(split[1]);
     console.log(`${fileName} found!`);
   }
 
@@ -62,7 +62,7 @@ export const WebSocketHandler: React.FC<{
               animate={({ opacity: 1 }, { y: 0 })}
               className={styled.rfile}
             >
-              <div className={styled.rfname}>{"101byte.txt"}</div>
+              <div className={styled.rfname}>{fileName}</div>
               <a href={file} download={fileName}>
                 <span className="material-symbols-outlined">file_download</span>
               </a>
