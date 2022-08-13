@@ -59,7 +59,7 @@ export const WebSocketHandler: React.FC<{
                  #1223d4 0%,
                  #ef1dfd 44%,
                  #f3ff8f 92%
-               );`
+                 );`
     );
   }
 
