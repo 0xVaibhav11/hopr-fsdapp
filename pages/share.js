@@ -50,6 +50,7 @@ function Fshare() {
       setAddress(account?.hoprAddress);
     };
     loadAddress();
+    console.log(address);
   }, [securityToken, httpEndpoint]);
 
   useEffect(() => {
@@ -107,7 +108,7 @@ function Fshare() {
 
   // sending to the node
   const sendMessage = async () => {
-    if (address) return;
+    if (!address) return;
     for (const elements of fileToSend) {
       await fetch(`${httpEndpoint}/api/v2/messages`, {
         method: "POST",
