@@ -14,13 +14,20 @@ It is converting files into base64 string and dividing into the chunks of 400byt
 and to make file accessable to the user, App collects all chunks(messages) from node and merge all chunks into one base64 string.
 Then decodes that string and gives a download link to user.
 
-### Try [dApp](https://share3.vanoob.dev)
+### Try [Share<3](https://share3.vanoob.dev)
 
-## Demo video
+## Demo video 🎞 👀
+https://user-images.githubusercontent.com/97467803/184550904-67d8f3c6-1c40-4f6d-ba0e-ce91399a39b2.mp4
 
-![demo](https://user-images.githubusercontent.com/97467803/180613164-e9ad8594-c42c-4bdf-8bb1-1abe920585cf.gif)
 
-[To know how to use this app see full video](https://vimeo.com/732748433)
+## 🚀 Launch a HOPRd cluster
+
+### Gitpod
+https://gitpod.io/#github.com/hoprnet/hoprnet/tree/release/lisbon
+
+### HOPR Playground
+https://playground.hoprnet.org/
+
 
 ## Direct link with api settings
 ```text
@@ -38,3 +45,4 @@ https://share3.vanoob.dev/share?apiEndpoint="https://yourHttpEndpoint.com"&apiTo
 - [HOPR Repository](https://github.com/hoprnet/hoprnet)
 
 <h2 align="right">Powered by HOPR</h2>
+<img align="right" src="https://user-images.githubusercontent.com/97467803/184551287-adc4e457-7069-4ae1-b3a0-2ff644e0a632.png" alt="hopr">
