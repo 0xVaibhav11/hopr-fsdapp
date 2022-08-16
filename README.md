@@ -17,7 +17,12 @@ Then decodes that string and gives a download link to user.
 ### Try [Share<3](https://share3.vanoob.dev)
 
 ## Demo video 🎞 👀
+### Sharing files with Share3
 https://user-images.githubusercontent.com/97467803/184550904-67d8f3c6-1c40-4f6d-ba0e-ce91399a39b2.mp4
+
+### Sharing files between nodes
+https://user-images.githubusercontent.com/97467803/184985000-8c8cb85b-f38a-43c6-81b0-e679d285aec4.mp4
+
 
 
 ## 🚀 Launch a HOPRd cluster
