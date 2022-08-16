@@ -52,7 +52,7 @@ const Home = () => {
             </div>
             <div className={styles.links}>
               <a href="https://hoprnet.org" target="_blank" rel="noreferrer">
-                What&#39;s HOPR
+                What&#39;s HOPR&quest;
               </a>
 
               <a
@@ -71,8 +71,7 @@ const Home = () => {
               </h1>
               <h1>It&#39;s WEB3</h1>
               <p>
-                Share you files privetly to others in most secure way on
-                blockchain with Hopr
+                Share your files privately to others completely securely with HOPR
               </p>
               <div className={styles.btn}>
                 <div className={styles.dash}>
