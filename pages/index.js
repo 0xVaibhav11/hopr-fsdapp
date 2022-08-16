@@ -52,7 +52,7 @@ const Home = () => {
             </div>
             <div className={styles.links}>
               <a href="https://hoprnet.org" target="_blank" rel="noreferrer">
-                What&#39;s HOPR&quest;
+                What&#39;s HOPR?
               </a>
 
               <a
