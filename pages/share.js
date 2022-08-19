@@ -17,7 +17,6 @@ function Fshare() {
 
   const [securityToken, setSecurityToken] = useState("");
   const [httpEndpoint, setHTTPEndpoint] = useState("http://localhost:3001");
-  const [path, setPath] = useState("");
   const [address, setAddress] = useState("");
 
   const [fileToSend, setFileToSend] = useState([]);
@@ -85,10 +84,11 @@ function Fshare() {
   const handleChange = async (file) => {
     console.log(file.name);
     const base64 = await convertBase64(file);
-    const toSend = `${base64}@${file.name}`;
+    const toSend = `${base64}@${file.name}@`;
     const encoded = toSend.match(/.{1,400}/g) || [];
     setFileToSend(encoded);
     setErrFeed(`Uploded successfully! 😉`);
+    setFeed("Send 🚀");
     setFiled({
       name: file.name,
       size: file.size,
@@ -116,7 +116,6 @@ function Fshare() {
         body: JSON.stringify({
           recipient: address,
           body: elements,
-          path: [path],
         }),
       })
         .then(function (response) {
@@ -229,7 +228,7 @@ function Fshare() {
                 {filed.name ? (
                   <>
                     <motion.div
-                      key="2"
+                      key={filed.name}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className={styled.file}
@@ -257,18 +256,6 @@ function Fshare() {
                     onChange={(e) => setAddress(e.target.value)}
                   />
                   <span>Hopr address</span>
-                </div>
-                <div className={styled.inputBox}>
-                  <input
-                    required
-                    title="Path to travel trough!"
-                    type="text"
-                    name="path"
-                    placeholder={path}
-                    value={path}
-                    onChange={(e) => setPath(e.target.value)}
-                  />
-                  <span>Path</span>
                 </div>
                 <div className={styled.btn} onClick={() => sendMessage()}>
                   <div className={styled.dash}>

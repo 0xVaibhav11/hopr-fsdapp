@@ -23,9 +23,7 @@ const useWebsocket = (settings: Settings) => {
   }, 1e3);
 
   const handleOpenEvent = () => {
-    console.info("%cWS CONNECTED",`font-size: 1.5rem;
-          font-weight: 700;
-      `);
+    console.info("%cWS CONNECTED", `font-weight: 700;`);
     setState((draft) => {
       draft.status = "CONNECTED";
       return draft;

@@ -47,20 +47,9 @@ export const WebSocketHandler: React.FC<{
     setMessage("");
     setMessage(received.join(""));
     const split = message.split("@");
-    setFile(split[0]);
-    setFileName(split[1]);
-    console.log(
-      `%c${fileName} found!`,
-      `font-size: 2rem;
-          font-weight: 700;
-          padding: 10px;
-          background: linear-gradient(
-                 38deg,
-                 #1223d4 0%,
-                 #ef1dfd 44%,
-                 #f3ff8f 92%
-                 );`
-    );
+    setFile(split[split.length - 3]);
+    setFileName(split[split.length - 2]);
+    console.log(`%c${fileName} found!`, `font-weight: 700;`);
   }
 
   return (
@@ -69,6 +58,7 @@ export const WebSocketHandler: React.FC<{
         {file ? (
           <>
             <motion.div
+              key={fileName}
               initial={({ opacity: 0 }, { y: -100 })}
               animate={({ opacity: 1 }, { y: 0 })}
               className={styled.rfile}
@@ -89,13 +79,13 @@ export const WebSocketHandler: React.FC<{
       {received[0] ? (
         <>
           <motion.div
-            whileTap={{ rotate: [360, 360, 360, 360, 0] }}
-            transition={{ duration: 1 }}
+            whileTap={{ rotate: [0, 90, 180, 270, 0] }}
+            transition={{ duration: 0.3 }}
             className={styled.btn}
             onClick={() => render()}
           >
-            <span title="sync!" className="material-symbols-outlined">
-              sync
+            <span title="refresh!" className="material-symbols-outlined">
+              refresh
             </span>
           </motion.div>
         </>
