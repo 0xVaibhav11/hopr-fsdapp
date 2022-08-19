@@ -16,6 +16,10 @@ Then decodes that string and gives a download link to user.
 
 ### Try [Share<3](https://share3.vanoob.dev)
 
+## Changes
+- Path selection option is now removed!
+- Refresh icon
+
 ## Demo video 🎞 👀
 ### Sharing files with Share3
 https://user-images.githubusercontent.com/97467803/184550904-67d8f3c6-1c40-4f6d-ba0e-ce91399a39b2.mp4
