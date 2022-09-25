@@ -32,12 +32,12 @@ https://user-images.githubusercontent.com/97467803/184985000-8c8cb85b-f38a-43c6-
 
 ## 🚀 Launch a HOPRd cluster
 
-### Gitpod
-https://gitpod.io/#github.com/hoprnet/hoprnet/tree/release/lisbon
-
 ### HOPR Playground
+<h5>Ready to use nodes</h5>
 https://playground.hoprnet.org/
 
+### Gitpod
+https://gitpod.io/#github.com/hoprnet/hoprnet/tree/release/lisbon
 
 ## Direct link with api settings
 ```text
