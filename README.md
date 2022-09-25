@@ -3,6 +3,7 @@
 
 <h1 align="center">This is Share<3</h1>
 <h5 align="center">A dApp on HOPR mixnet</h5>
+<h5 align="center">Share your files privately to others completely securely with HOPR</h5>
 
 ## Description
 ### What is dApp 
